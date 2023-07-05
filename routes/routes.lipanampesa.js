@@ -4,7 +4,7 @@ const{
     initiateSTKPush,
     stkPushCallback,
     confirmPayment
-} = require ('../controllers/controllers.lipanampesa.js/controllers.lipanampesa');
+} = require ('../controllers/controllers.lipanampesa');
 
 
 const {accessToken} = require ("../middlewares/middlewares.generateAccessToken.js");

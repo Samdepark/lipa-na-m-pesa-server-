@@ -2,7 +2,7 @@ function parseDate(val) {
     return (val < 10) ? "0" + val : val;
 }
 
-function getTimestamp(){
+ getTimestamp = () =>{
 
     const dateString  = new Date().toLocaleString("en-us", {timeZone: "Africa/Nairobi"})
     const dateObject = new Date(dateString);
@@ -16,4 +16,4 @@ function getTimestamp(){
 }
 
 
-module.exports.getTimestamp = getTimestamp
+module.exports = getTimestamp

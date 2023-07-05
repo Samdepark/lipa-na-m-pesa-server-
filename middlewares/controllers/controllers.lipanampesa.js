@@ -1,13 +1,13 @@
 const request = require ("request");
-require ('dotenv/config')
-const getTimestamp = require ('../utils/utils.timestamp.js');
-const ngrok= require ('ngrok')
+require('dotenv/config');
+const {getTimestamp} = require ("../Utils/utils.timestamp.js");
+const ngrok = require ('ngrok')
 
 // @desc initiate stk push
 // @method POST
 // @route /stkPush
 // @access public
-const initiateSTKPush = async(req, res) => {
+ const initiateSTKPush = async(req, res) => {
     try{
 
         const {amount, phone,Order_ID} = req.body
@@ -66,4 +66,5 @@ const initiateSTKPush = async(req, res) => {
     }
 }
 
-module.exports = {initiateSTKPush}
+
+module.exports = initiateSTKPush
