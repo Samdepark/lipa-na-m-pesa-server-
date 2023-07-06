@@ -22,7 +22,7 @@ require ('dotenv/config')
                     })
                 }
                 else {
-                    req.safaricom_access_token = JSON.parse(body).access_token
+                    req.safaricom_access_token = JSON.body.access_token
                     next()
                 }
             }
