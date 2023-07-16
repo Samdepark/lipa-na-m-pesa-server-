@@ -16,4 +16,4 @@ function parseDate(val) {
 }
 
 
-module.exports = getTimestamp
+module.exports = getTimestamp;

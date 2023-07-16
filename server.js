@@ -1,20 +1,21 @@
 const express = require ("express");
+const app = express();
 const cors = require ("cors");
-require ('dotenv/config')
+require ('dotenv/config');
+const lipaNaMpesaRoute = require ("./routes/routes.lipanampesa");
+const port = process.env.PORT
 
-// initialize express
-const app = express()
 
 // middlewares
-app.use(express.json())
+app.use(express.json())//converts files into json
 app.use(cors())
 
 // import routes
-const lipaNaMpesaRoutes = require ("./routes/routes.lipanampesa")
-app.use('/api',lipaNaMpesaRoutes)
+app.use('/api',lipaNaMpesaRoute);
 
-const port = process.env.PORT
+
+
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
-})
+});
