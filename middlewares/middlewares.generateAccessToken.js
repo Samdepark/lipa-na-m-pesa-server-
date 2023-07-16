@@ -12,20 +12,17 @@ require ('dotenv/config')
                 headers: {
                     "Authorization": "Basic " + auth
                 }
-            },
-            (error, response, body) => {
-                if (error) {
-                    res.status(401).send({
-                        "message": 'Something went wrong when trying to process your payment',
-                        "error":error.message
-                    })
-                }
-                else {
-                    req.safaricom_access_token = JSON.parse(body).access_token
-                    next()
-                }
-            }
-        )
+            })
+            .then(response=> {
+                req.safaricom_access_token = response.data.access_token;
+                next();
+            })
+            .catch(error =>{
+                res.status(401).send({
+                    'message': 'something went wrong while trying to process your payment',
+                    "error":error.message
+                })
+            });
     }catch (error) {
 
         console.error("Access token error ", error)
