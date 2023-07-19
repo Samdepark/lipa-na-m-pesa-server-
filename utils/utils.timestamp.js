@@ -11,8 +11,7 @@ function parseDate(val) {
     const hour = parseDate(dateObject.getHours());
     const minute = parseDate(dateObject.getMinutes());
     const second = parseDate(dateObject.getSeconds());
-    return dateObject.getFullYear() + "" + month + "" + day + "" +
-        hour + "" + minute + "" + second;
+    return `${dateObject.getFullYear()}${month}${day}${hour}${minute}${second}`;
 }
 
 

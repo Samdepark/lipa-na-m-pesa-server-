@@ -6,14 +6,14 @@ require ('dotenv/config')
     try{
 
         const url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-        const auth = new Buffer.from(`${process.env.SAFARICOM_CONSUMER_KEY}:${process.env.SAFARICOM_CONSUMER_SECRET}`).toString('base64');
+        const auth = Buffer.from(`${process.env.SAFARICOM_CONSUMER_KEY}:${process.env.SAFARICOM_CONSUMER_SECRET}`).toString('base64');
 
         axios.get(url, {
                 headers: {
-                    "Authorization": "Basic " + auth
+                    "Authorization": `'Basic' ${auth}`
                 }
             })
-            .then(response=> {
+            .then(response => {
                 req.safaricom_access_token = response.data.access_token;
                 next();
             })
